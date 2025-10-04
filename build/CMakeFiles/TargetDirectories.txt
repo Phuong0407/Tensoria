@@ -1,0 +1,3 @@
+/media/grasvistds/DATA/SELFINITIATION/Tensoria/build/CMakeFiles/Tensoria.dir
+/media/grasvistds/DATA/SELFINITIATION/Tensoria/build/CMakeFiles/edit_cache.dir
+/media/grasvistds/DATA/SELFINITIATION/Tensoria/build/CMakeFiles/rebuild_cache.dir
