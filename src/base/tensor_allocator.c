@@ -88,11 +88,11 @@ TensorError_t tensor_fill(const size_t *shape, const size_t ndim, double value,
 
 TensorError_t tensor_copy(const Tensor_t *src, Tensor_t **out) {
   if (!src || !out)
-      return TENSOR_ERROR_NULL_POINTER;
+    return TENSOR_ERROR_NULL_POINTER;
 
   TensorError_t err = tensor_allocate(src->shape, src->ndim, out);
   if (err != TENSOR_SUCCESS)
-      return err;
+    return err;
 
   Tensor_t *dst = *out;
   memcpy(dst->data, src->data, src->num_entries * sizeof(double));
@@ -101,25 +101,25 @@ TensorError_t tensor_copy(const Tensor_t *src, Tensor_t **out) {
 }
 
 TensorError_t tensor_deallocate(Tensor_t *t) {
-    if (!t)
-        return TENSOR_ERROR_NULL_POINTER;
+  if (!t)
+    return TENSOR_ERROR_NULL_POINTER;
 
-    if (t->own_data && t->data) {
-        free(t->data);
-        t->data = NULL;
-    }
+  if (t->own_data && t->data) {
+    free(t->data);
+    t->data = NULL;
+  }
 
-    if (t->shape) {
-        free(t->shape);
-        t->shape = NULL;
-    }
+  if (t->shape) {
+    free(t->shape);
+    t->shape = NULL;
+  }
 
-    if (t->strides) {
-        free(t->strides);
-        t->strides = NULL;
-    }
+  if (t->strides) {
+    free(t->strides);
+    t->strides = NULL;
+  }
 
-    free(t);
+  free(t);
 
-    return TENSOR_SUCCESS;
+  return TENSOR_SUCCESS;
 }
